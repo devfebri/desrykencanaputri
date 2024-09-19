@@ -180,7 +180,9 @@
 
       <script type="text/javascript">
           $(document).ready(function() {
-              $('#datatable2').DataTable();
+              $('#datatable2').DataTable({
+                scrollX: true,
+              });
           });
 
       </script>
