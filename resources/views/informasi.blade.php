@@ -59,11 +59,19 @@
     <meta content="Mannatthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="{{ asset('image/logo-png.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
+
+    <!-- DataTables -->
+    <link href="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('template/assets/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="{{ asset('template/assets/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+
 
     <link href="{{ asset('template/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/assets/css/icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('template/assets/css/welcome.css') }}" rel="stylesheet" type="text/css">
+
     <!-- Alertify css -->
     <link href="{{ asset('template/assets/plugins/alertify/css/alertify.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -72,10 +80,9 @@
         .febri {
             box-shadow: 0 0 15px 0 #fff;
         }
-
         .wrapper-page {
             margin: 4% auto !important;
-            max-width: 800px !important;
+            max-width: 1100px !important;
         }
 
 
@@ -91,23 +98,42 @@
             </marquee> --}}
     <div class="wrapper-page">
 
-        <div class="" style="font-family:revert-layer;">
+        <div class="card" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
                     <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt>
                 </h3>
-                <h3 style="font-family:Cursive;font-size:16pt;color:white;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Layanan Dinas Perhubungan Kota Jambi</b></h3>
-                <div class="p-5 animate__animated animate__zoomIn">
-                    <div class="form-group text-center row m-t-20">
-                        <div class="col-12">
-                            <a href="{{ route('pengajuan') }}" class="btn btn-primary btn-block waves-effect waves-light">Ajukan Permohonan</a>
-                            <a href="{{ route('informasi') }}" class="btn btn-primary btn-block waves-effect waves-light">Informasi Permohonan</a>
-                            <a href="{{ route('login') }}" class="btn btn-secondary btn-block waves-effect waves-light">Login Petugas</a>
+                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Daftar Permohonan Dinas Perhubungan</b></h3>
 
-                        </div>
-                    </div>
 
-                </div>
+                <h4 class="header-title">
+                    <a href="{{ route('welcome') }}" class="btn btn-primary">Kembali</a>
+                </h4>
+
+
+                <table id="datatable2" class="table table-bordered m-t-20 p-2">
+
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Pemohon</th>
+                            <th>Pekerjaan</th>
+                            <th>Alamat</th>
+                            <th>Jenis Permintaan</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Erik</td>
+                            <td>Dishub</td>
+                            <td>Jambi</td>
+                            <td>Rambu</td>
+                            <td>Proses Dokumen</td>
+                        </tr>
+                    </tbody>
+                </table>
 
             </div>
         </div>
@@ -132,6 +158,34 @@
     <script src="{{ asset('template/assets/js/app.js') }}"></script>
     <script src="{{ asset('js/particles.js') }}"></script>
     <script src="{{ asset('js/app-particle.js') }}"></script>
+
+     <!-- Required datatable js -->
+     <script src="{{ asset('template/assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+     <!-- Buttons examples -->
+     <script src="{{ asset('template/assets/plugins/datatables/dataTables.buttons.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/buttons.bootstrap4.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/jszip.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/pdfmake.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/vfs_fonts.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/buttons.html5.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/buttons.print.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/buttons.colVis.min.js') }}"></script>
+     <!-- Responsive examples -->
+     <script src="{{ asset('template/assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
+     <script src="{{ asset('template/assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+
+     <!-- Datatable init js -->
+     <script src="{{ asset('template/assets/pages/datatables.init.js') }}"></script>
+
+      <script type="text/javascript">
+          $(document).ready(function() {
+              $('#datatable2').DataTable();
+          });
+
+      </script>
+
+
 </body>
 </html>
 

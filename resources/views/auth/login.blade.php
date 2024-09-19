@@ -88,9 +88,9 @@
         <div class="" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
-                    <img src="{{ asset('img/unja.png') }}" class="rounded-circle febri bg-white" height="100" alt="logo" data-tilt>
+                    <img src="{{ asset('img/icon.png') }}"  height="100" alt="logo" data-tilt>
                 </h3>
-                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn ">Instrumen To Fevaluation</h3>
+                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn ">Dinas Perhubungan Kota Jambi</h3>
 
 
                 <div class="p-3 animate__animated animate__flipInX">
@@ -110,7 +110,7 @@
                         @csrf
                         <div class="form-group row">
                             <div class="col-12">
-                                <input class="form-control text-center" name="username" type="text" required="" value="{{ $login_username }}" placeholder="NIK / Nomor Telpon">
+                                <input class="form-control text-center" name="username" type="text" required="" value="{{ $login_username }}" placeholder="Username">
                             </div>
                         </div>
 
@@ -124,7 +124,7 @@
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Login</button>
-                                {{-- <a href="/registrasi" class="btn btn-secondary btn-block waves-effect waves-light">Registrasi</a> --}}
+                                <a href="{{ route('welcome') }}" class="btn btn-secondary btn-block waves-effect waves-light">Kembali</a>
                             </div>
                         </div>
 
