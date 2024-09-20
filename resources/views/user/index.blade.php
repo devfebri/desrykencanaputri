@@ -57,6 +57,10 @@
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id">
                     <div class="form-group">
+                        <h6 class="text-muted fw-400 mt-3">Username</h6>
+                        <input type="text" class="form-control" name="username" id="username" required>
+                    </div>
+                    <div class="form-group">
                         <h6 class="text-muted fw-400 mt-3">Name</h6>
                         <input type="text" class="form-control" name="name" id="name" required>
                     </div>
@@ -72,8 +76,8 @@
                         <h6 class="text-muted fw-400">Role</h6>
                         <select class=" form-control mb-3 custom-select" name="role" id="role" style="width: 100%; height:36px;" required>
                             <option value="">-pilih-</option>
-                            <option value="mahasiswa">Mahasiswa</option>
-                            <option value="dosen">Dosen</option>
+                            <option value="kabid">Kabid</option>
+                            <option value="kadis">Kadis</option>
                         </select>
                     </div>
                 </div>

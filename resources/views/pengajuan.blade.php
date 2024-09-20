@@ -112,59 +112,60 @@
                     }
                     @endphp
 
-                    <form class="form-horizontal m-t-20" action="{{ route('proses_login') }}" method="POST">
+                    <form class="form-horizontal m-t-20" action="{{ route('tambahpermohonan') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Nama</label>
+                            <label for="nama" class="col-sm-3 col-form-label">Nama</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" id="staticEmail">
+                                <input type="text" class="form-control" id="nama" name="nama" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Pekerjaan</label>
+                            <label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" id="staticEmail">
+                                <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">No Hp</label>
+                            <label for="nohp" class="col-sm-3 col-form-label">No Hp</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" id="staticEmail">
+                                <input type="number" class="form-control" id="nohp" name="nohp" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Alamat Lengkap</label>
+                            <label for="alamat" class="col-sm-3 col-form-label">Alamat Lengkap</label>
                             <div class="col-sm-9">
-                                <input type="text"  class="form-control" id="staticEmail">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Jenis Permintaan</label>
-                            <div class="col-sm-9">
-                                <select class="form-control">
-                                    <option>- pilih -</option>
-                                    <option>Pita Penggadu</option>
-                                    <option>Cermin Tikungan</option>
-                                    <option>Rambu</option>
-                                </select>
+                                <textarea id="textarea" class="form-control" rows="3" id="alamat" name="alamat" required></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Keterangan</label>
                             <div class="col-sm-9">
-                                <textarea id="textarea" class="form-control"  rows="3" ></textarea>
+                                <textarea id="textarea" class="form-control" rows="3" id="keterangan" name="keterangan" required></textarea>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Foto Lokasi</label>
+                            <label class="col-sm-3 col-form-label">Jenis Permintaan</label>
                             <div class="col-sm-9">
-                                <input type="file"  class="form-control" id="staticEmail">
+                                <select class="form-control" name="jenis" id="jenis" required>
+                                    <option>- pilih -</option>
+                                    <option value="Pita Penggadu">Pita Penggadu</option>
+                                    <option value="Cermin Tikungan">Cermin Tikungan</option>
+                                    <option value="Rambu">Rambu</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Dokumen Surat Permintaan</label>
+                            <label for="foto_lokasi" class="col-sm-3 col-form-label">Foto Lokasi</label>
                             <div class="col-sm-9">
-                                <input type="file"  class="form-control" id="staticEmail">
+                                <input type="file"  class="form-control" id="foto_lokasi" name="foto_lokasi[]" multiple required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="dokumen" class="col-sm-3 col-form-label">Dokumen Surat Permintaan</label>
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" id="dokumen" name="dokumen[]" multiple required>
+
                             </div>
                         </div>
                         <div class="form-group text-center row m-t-20">

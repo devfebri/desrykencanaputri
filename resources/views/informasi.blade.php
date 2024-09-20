@@ -111,7 +111,8 @@
                 </h4>
 
 
-                <table id="datatable2" class="table table-bordered m-t-20 p-2">
+                <table id="datatable2" class="table table-striped table-bordered" style="width: 100%">
+
 
                     <thead>
                         <tr>
@@ -124,14 +125,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Erik</td>
-                            <td>Dishub</td>
-                            <td>Jambi</td>
-                            <td>Rambu</td>
-                            <td>Proses Dokumen</td>
-                        </tr>
+                        @foreach ($data as $key=>$row)
+                            <tr>
+                                <td>{{ ++$key }}</td>
+                                <td>{{ $row->nama }}</td>
+                                <td>{{ $row->pekerjaan }}</td>
+                                <td>{{ $row->alamat }}</td>
+                                <td>{{ $row->jenis }}</td>
+                                <td style="text-align: center">
+                                    @if($row->status=='Proses Dokumen')
+                                    <span class="badge badge-pill badge-info">{{ $row->status }}</span>
+                                    @elseif($row->status=='Proses Survei')
+                                    <span class="badge badge-pill badge-warning">{{ $row->status }}</span>
+                                    @elseif($row->status=='Disetujui')
+                                    <span class="badge badge-pill badge-success">{{ $row->status }}</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -184,6 +195,12 @@
                 scrollX: true,
               });
           });
+          @if(Session::has('berhasil'))
+          alertify.success("{{ Session::get('berhasil') }}");
+          @elseif(Session::has('gagal'))
+          alertify.error("{{ Session::get('gagal') }}");
+          @endif
+
 
       </script>
 

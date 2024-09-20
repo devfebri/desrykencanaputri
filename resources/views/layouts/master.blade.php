@@ -52,7 +52,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Instrumen To Fevaluation</title>
+    <title>Dinas Perhubungan Kota Jambi</title>
 
 
     <meta content="Admin Dashboard" name="description" />
@@ -60,7 +60,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="{{ asset('image/logo-png.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
 
     <link href="{{ asset('template/assets/plugins/morris/morris.css') }}" rel="stylesheet">
 
@@ -131,7 +131,9 @@
             </div> <!-- content -->
 
             <footer class="footer">
-                © 2024 Universitas Jambi | Bug Report Unit IT.
+                © 2024 Dinas Perhubungan Kota Jambi | Bug Report <a href="https://wa.me/085266911477" target="_blank">Padepokan IT</a>.
+
+
             </footer>
 
         </div>

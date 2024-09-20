@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permohonan;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -13,6 +14,7 @@ class FrontController extends Controller
         return view('pengajuan');
     }
     public function informasi(){
-        return view('informasi');
+        $data = Permohonan::orderBy('id', 'desc')->get();
+        return view('informasi', compact('data'));
     }
 }

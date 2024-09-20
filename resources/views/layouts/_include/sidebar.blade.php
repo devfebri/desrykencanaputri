@@ -2,7 +2,7 @@
 <div class="topbar-left">
     <div class="text-center">
         {{-- <a href="index.html" class="logo"><i class="mdi mdi-assistant"></i> Annex</a> --}}
-        <a href="{{ route(auth()->user()->role.'_dashboard') }}" class="logo"><img src="{{ asset('img/unja.png') }}" class="bg-white" height="80" alt="logo"></a>
+        <a href="{{ route(auth()->user()->role.'_dashboard') }}" class="logo"><img src="{{ asset('img/icon.png') }}" class="bg-white" height="80" alt="logo"></a>
         <h5></h5>
     </div>
 </div>
@@ -19,26 +19,14 @@
             </li>
             <li>
                 <a href="{{ route(auth()->user()->role.'_user') }}" class="waves-effect">
-                    <i class="mdi mdi-account-multiple"></i>
+                    <i class="mdi mdi-home"></i>
                     <span> User </span>
                 </a>
             </li>
             <li>
-                <a href="{{ route(auth()->user()->role.'_kelas') }}" class="waves-effect">
-                    <i class="mdi mdi-clipboard"></i>
-                    <span> Kelas </span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route(auth()->user()->role.'_mindset') }}" class="waves-effect">
-                    <i class="mdi mdi-calendar-text"></i>
-                    <span> Pertanyaan </span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="waves-effect">
-                    <i class="mdi mdi-buffer"></i>
-                    <span> Jawaban </span>
+                <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="waves-effect">
+                    <i class="mdi mdi-home"></i>
+                    <span> Permohonan </span>
                 </a>
             </li>
         </ul>
