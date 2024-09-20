@@ -44,7 +44,7 @@ class PermohonanController extends Controller
                 $filename1 = $row->getClientOriginalName() . '-' . time() . '.' . $row->extension();
                 $row->move(public_path() . '/storage/dokumen/' . $data->id, $filename1);
                 $dokumen->permohonan_id = $data->id;
-                $dokumen->dokumen = $filename;
+                $dokumen->dokumen = $filename1;
                 $dokumen->save();
             }
         }
@@ -68,7 +68,10 @@ class PermohonanController extends Controller
     }
 
     public function detail($id){
+        // dd($id);
         $data=Permohonan::find($id);
-        return view('permohonan.open',compact('data'));
+        $foto_lokasi=FotoLokasi::where('permohonan_id',$id)->get();
+        $dokumen=Dokumen::where('permohonan_id',$id)->get();
+        return view('permohonan.open',compact('data','foto_lokasi','dokumen'));
     }
 }

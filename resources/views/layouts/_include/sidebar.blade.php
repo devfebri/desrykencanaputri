@@ -11,24 +11,26 @@
 
     <div id="sidebar-menu">
         <ul>
-            <li>
+            {{-- <li>
                 <a href="{{ route(auth()->user()->role.'_dashboard') }}" class="waves-effect">
                     <i class="mdi mdi-home"></i>
                     <span> Dashboard </span>
                 </a>
-            </li>
+            </li> --}}
+             <li>
+                 <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="waves-effect">
+                     <i class="mdi mdi-home"></i>
+                     <span> Permohonan </span>
+                 </a>
+             </li>
+
             <li>
                 <a href="{{ route(auth()->user()->role.'_user') }}" class="waves-effect">
                     <i class="mdi mdi-home"></i>
                     <span> User </span>
                 </a>
             </li>
-            <li>
-                <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="waves-effect">
-                    <i class="mdi mdi-home"></i>
-                    <span> Permohonan </span>
-                </a>
-            </li>
+
         </ul>
     </div>
     <div class="clearfix"></div>

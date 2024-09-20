@@ -27,7 +27,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
 
-            return redirect(route(auth()->user()->role . '_dashboard'))->with('pesan', 'Selamat datang kembali "' . auth()->user()->name . '"');
+            return redirect(route(auth()->user()->role . '_permohonan'))->with('pesan', 'Selamat datang kembali "' . auth()->user()->name . '"');
         } else {
             return redirect('/')->with('gagal', 'Periksa Username dan Password anda');
         }
