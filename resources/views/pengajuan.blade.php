@@ -168,6 +168,14 @@
 
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="" class="col-sm-3 col-form-label">Contoh Surat </label>
+                            <div class="col-sm-9">
+                                <a href="{{ asset('/storage/contoh.pdf') }}" target="_blank" class="btn btn-primary btn-sm">download</a>
+
+
+                            </div>
+                        </div>
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Simpan</button>

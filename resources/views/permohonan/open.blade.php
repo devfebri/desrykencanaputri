@@ -144,7 +144,6 @@
                             <div class="">
                                 @foreach ($foto_lokasi as $key1=>$row1)
                                 <a href="{{ asset('/storage/foto_lokasi/'.$row1->permohonan_id.'/'.$row1->foto) }}" class="btn btn-primary btn-sm" target="_blank">Foto Lokasi {{ ++$key1 }}</a>
-
                                 @endforeach
                             </div>
 
