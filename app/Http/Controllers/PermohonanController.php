@@ -10,7 +10,14 @@ use Illuminate\Http\Request;
 class PermohonanController extends Controller
 {
     public function index(){
-        $data=Permohonan::orderBy('id','desc')->get();
+        $role=auth()->user()->role;
+        if($role=='admin'){
+            $data=Permohonan::orderBy('id','desc')->get();
+        }elseif($role=='kabid'){
+            $data = Permohonan::where('persetujuan_kasi','Disetujui')->orderBy('id', 'desc')->orderBy('persetujuan_kasi','desc')->get();
+        }elseif($role=='kadis'){
+            $data = Permohonan::where('persetujuan_kabid', 'Disetujui')->where('persetujuan_kasi', 'Disetujui')->orderBy('id', 'desc')->orderBy('persetujuan_kasi','desc')->get();
+        }
         return view('permohonan.index',compact('data'));
     }
 
@@ -68,10 +75,51 @@ class PermohonanController extends Controller
     }
 
     public function detail($id){
-        // dd($id);
+        // dd($data);
         $data=Permohonan::find($id);
         $foto_lokasi=FotoLokasi::where('permohonan_id',$id)->get();
         $dokumen=Dokumen::where('permohonan_id',$id)->get();
         return view('permohonan.open',compact('data','foto_lokasi','dokumen'));
+    }
+
+    public function setujui($id){
+        $data = Permohonan::find($id);
+        $role = auth()->user()->role;
+        if ($role == 'admin') {
+            $data->update([
+                'persetujuan_kasi' => 'Disetujui',
+                'status' => 'Proses Survei'
+            ]);
+        } elseif ($role == 'kabid') {
+            $data->update([
+                'persetujuan_kabid' => 'Disetujui'
+            ]);
+        } elseif ($role == 'kadis') {
+            $data->update([
+                'persetujuan_kadis' => 'Disetujui',
+                'status' => 'Disetujui'
+            ]);
+        }
+        return redirect()->back();
+    }
+
+    public function tidakdisetujui($id){
+        $data = Permohonan::find($id);
+        $role=auth()->user()->role;
+        if($role=='admin'){
+            $data->update([
+                'persetujuan_kasi' => 'Tidak Disetujui'
+            ]);
+        }elseif($role=='kabid'){
+            $data->update([
+                'persetujuan_kabid' => 'Tidak Disetujui'
+            ]);
+        }elseif($role=='kadis'){
+            $data->update([
+                'persetujuan_kadis' => 'Tidak Disetujui'
+            ]);
+        }
+
+        return redirect()->back();
     }
 }

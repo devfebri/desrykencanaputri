@@ -10,4 +10,5 @@ class Permohonan extends Model
     use HasFactory;
 
     protected $table='permohonan';
+    protected $fillable=['persetujuan_kasi','persetujuan_kabid','persetujuan_kadis','status'];
 }

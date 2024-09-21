@@ -29,7 +29,7 @@ class AuthController extends Controller
 
             return redirect(route(auth()->user()->role . '_permohonan'))->with('pesan', 'Selamat datang kembali "' . auth()->user()->name . '"');
         } else {
-            return redirect('/')->with('gagal', 'Periksa Username dan Password anda');
+            return redirect('/login')->with('gagal', 'Periksa Username dan Password anda');
         }
 
         return redirect()->back();

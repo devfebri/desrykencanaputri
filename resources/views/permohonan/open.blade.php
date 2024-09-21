@@ -29,14 +29,13 @@
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="row text-center" style="font-size: 12px;">
-                        <div class="col-lg-4 col-md-6 col-sm-12" @if( $data->persetujuan_kasi=='Proses Survei') style="background-color: rgb(255, 165, 0);" @elseif($data->persetujuan_kasi=='Disetujui') style="background-color: rgb(89, 255, 89);" @endif>
+                        <div class="col-lg-4 col-md-6 col-sm-12" @if( $data->persetujuan_kasi=='Disetujui') style="background-color: #83ff33 ;"  @elseif($data->persetujuan_kasi=='Tidak Disetujui') style="background-color: #ff5733;" @endif>
                             <div class="card-body">
                                 <b>Kasi</b> <br>
                                 <span class="badge badge-pill badge-primary"><b><i>{{ $data->persetujuan_kasi }}</i></b></span>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12" @if( $data->persetujuan_kabid=='Proses Survei') style="background-color: rgb(255, 165, 0);" @elseif($data->persetujuan_kabid=='Disetujui') style="background-color: rgb(89, 255, 89);" @endif>
-
+                        <div class="col-lg-4 col-md-6 col-sm-12" @if( $data->persetujuan_kabid=='Disetujui') style="background-color: #83ff33 ;" @elseif($data->persetujuan_kabid=='Tidak Disetujui') style="background-color: #ff5733;" @endif>
 
                             <div class="card-body">
                                 <b>Kabid</b> <br>
@@ -44,7 +43,8 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12" style="background-color: rgb(89, 255, 89);">
+                        <div class="col-lg-4 col-md-6 col-sm-12" @if( $data->persetujuan_kadis=='Disetujui') style="background-color: #83ff33 ;" @elseif($data->persetujuan_kadis=='Tidak Disetujui') style="background-color: #ff5733;" @endif>
+
                             <div class="card-body">
                                 <b>Kadis</b> <br>
                                 <span class="badge badge-pill badge-primary"><b><i>{{ $data->persetujuan_kadis }}</i></b></span>
@@ -123,9 +123,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="">
-                                @foreach ($dokumen as $row2)
-                                <a href="{{ asset('/storage/dokumen/'.$row2->permohonan_id.'/'.$row2->dokumen) }}" target="_blank"><img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;" src="{{ asset('/storage/dokumen/'.$row2->permohonan_id.'/'.$row2->dokumen) }}" data-holder-rendered="true"></a>
-
+                                @foreach ($dokumen as $key=>$row2)
+                                    <a href="{{ asset('/storage/dokumen/'.$row2->permohonan_id.'/'.$row2->dokumen) }}" target="_blank" class="btn btn-primary btn-sm">Dokumen {{ ++$key }}</a>
                                 @endforeach
                             </div>
 
@@ -143,8 +142,8 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="">
-                                @foreach ($foto_lokasi as $row1)
-                                <a href="{{ asset('/storage/foto_lokasi/'.$row1->permohonan_id.'/'.$row1->foto) }}" target="_blank"><img class="img-thumbnail" alt="200x200" style="width: 200px; height: 200px;" src="{{ asset('/storage/foto_lokasi/'.$row1->permohonan_id.'/'.$row1->foto) }}" data-holder-rendered="true"></a>
+                                @foreach ($foto_lokasi as $key1=>$row1)
+                                <a href="{{ asset('/storage/foto_lokasi/'.$row1->permohonan_id.'/'.$row1->foto) }}" class="btn btn-primary btn-sm" target="_blank">Foto Lokasi {{ ++$key1 }}</a>
 
                                 @endforeach
                             </div>

@@ -39,7 +39,7 @@ class UserController extends Controller
         $data->no_hp=$request->no_hp;
         $data->role=$request->role;
         $data->email=$request->email;
-        $data->password=bcrypt($request->no_hp);
+        $data->password=bcrypt($request->username);
         $data->save();
         return response()->json($data);
     }
