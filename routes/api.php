@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::apiResource('permohonan',ApiController::class);
+// Route::apiResource('permohonan',ApiController::class);

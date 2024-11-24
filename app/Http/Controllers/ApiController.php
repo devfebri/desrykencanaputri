@@ -16,9 +16,18 @@ class ApiController extends Controller
      */
     public function index()
     {
-        $permohonan['status']='success';
-        $permohonan['data']=Permohonan::all();
-        return response()->json($permohonan);
+        // $permohonan['status']='success';
+        $permohonan=Permohonan::all();// datanya
+
+        $key=0;
+        foreach($permohonan as $row)
+        {
+            $data['data'][$key]['id']=$row->id;
+            $key+1;
+        }
+        $foto=FotoLokasi::all();// file fotonya
+
+        return response()->json($data);
     }
 
     /**

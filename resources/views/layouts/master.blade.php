@@ -77,8 +77,8 @@
 
     <link href="{{ asset('template/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/assets/css/icons.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet" type="text/css">
-
+    {{-- <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet" type="text/css"> --}}
+    <link rel="stylesheet" href="{{ asset('template/assets/css/style.css') }}">
     <link href="{{ asset('template/assets/plugins/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet" />
 
     <style>
