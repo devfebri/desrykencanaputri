@@ -30,7 +30,7 @@ class PermohonanController extends Controller
         // $data->alamat=$request->alamat;
         $data->keterangan=$request->keterangan;
         $data->jenis=$request->jenis;
-        $data->status='Proses Dokumen';
+        $data->status='Proses';
         $data->save();
         // if ($request->has('foto_lokasi')) {
         //     $datafoto = $request->file('foto_lokasi');
@@ -86,7 +86,7 @@ class PermohonanController extends Controller
         $data = Permohonan::find($id);
         $role = auth()->user()->role;
         $data->update([
-            'persetujuan' => 'Disetujui',
+            'status' => 'Disetujui',
         ]);
         
         return redirect()->back();
@@ -96,7 +96,7 @@ class PermohonanController extends Controller
         $data = Permohonan::find($id);
         $role=auth()->user()->role;
         $data->update([
-            'persetujuan_kasi' => 'Tidak Disetujui'
+            'status' => 'Tidak Disetujui'
         ]);
        
 

@@ -29,7 +29,7 @@
                                     <th>Nama Pemohon</th>
                                     <th>Jenis Permintaan</th>
                                     <th>Status</th>
-                                    <th>Persetujuan</th>
+                                    <th>Tanggal Update</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -40,20 +40,18 @@
                                     <td>{{ $row->nama }}</td>
                                     <td>{{ $row->jenis }}</td>
                                     <td style="text-align: center">
-                                        @if($row->status=='Proses Dokumen')
+                                        @if($row->status=='Proses')
                                         <span class="badge badge-pill badge-info">{{ $row->status }}</span>
-                                        @elseif($row->status=='Proses Survei')
+                                        @elseif($row->status=='Tidak Disetujui')
                                         <span class="badge badge-pill badge-warning">{{ $row->status }}</span>
                                         @elseif($row->status=='Disetujui')
                                         <span class="badge badge-pill badge-success">{{ $row->status }}</span>
                                         @endif
                                     </td>
-                                    <td>
-                                        <span class="badge badge-pill @if($row->persetujuan_kasi=='Proses') badge-secondary @elseif($row->persetujuan_kasi=='Disetujui') badge-success @elseif($row->persetujuan_kasi=='Tidak Disetujui') badge-danger @endif ">{{ $row->persetujuan_kasi }}</span>
-                                    </td>
+                                    <td>{{ $row->updated_at }}</td>
                                     <td>
                                         <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
-                                        @if($row->persetujuan == 'Proses')
+                                        @if($row->status == 'Proses')
                                         <a href="{{ route(auth()->user()->role.'_permohonan_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success"><span class="ti-check"></span></a>
                                         <a href="{{ route(auth()->user()->role.'_permohonan_tidak_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tidak disetujui" class="tabledit-edit-button btn btn-sm btn-danger"><span class="ti-close"></span></a>
                                         @endif
