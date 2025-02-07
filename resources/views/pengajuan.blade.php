@@ -53,13 +53,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Dinas Perhubungan Kota Jambi</title>
+    <title>Desry Kencana Putri</title>
 
     <meta content="Admin Dashboard" name="description" />
     <meta content="Mannatthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('img/icon.png') }}"> --}}
 
     <link href="{{ asset('template/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/assets/css/icons.css') }}" rel="stylesheet" type="text/css">
@@ -93,9 +93,9 @@
         <div class="card" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
-                    <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt>
+                    {{-- <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Ajukan Permohonan Pada Dinas Perhubungan</b></h3>
+                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Ajukan Permintaan</b></h3>
 
 
 
@@ -120,13 +120,13 @@
                                 <input type="text" class="form-control" id="nama" name="nama" required>
                             </div>
                         </div>
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label for="pekerjaan" class="col-sm-3 col-form-label">Pekerjaan</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="pekerjaan" name="pekerjaan" required>
                             </div>
-                        </div>
-                        <div class="form-group row">
+                        </div> --}}
+                        {{-- <div class="form-group row">
                             <label for="nohp" class="col-sm-3 col-form-label">No Hp</label>
                             <div class="col-sm-9">
                                 <input type="number" class="form-control" id="nohp" name="nohp" required>
@@ -137,6 +137,19 @@
                             <div class="col-sm-9">
                                 <textarea id="textarea" class="form-control" rows="3" id="alamat" name="alamat" required></textarea>
                             </div>
+                        </div> --}}
+                        
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">Permintaan</label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="jenis" id="jenis" required>
+                                    <option>- pilih -</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Email">Email</option>
+                                    <option value="Devisi">Devisi</option>
+                                    <option value="Aplikasi">Aplikasi</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-3 col-form-label">Keterangan</label>
@@ -144,18 +157,8 @@
                                 <textarea id="textarea" class="form-control" rows="3" id="keterangan" name="keterangan" required></textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-sm-3 col-form-label">Jenis Permintaan</label>
-                            <div class="col-sm-9">
-                                <select class="form-control" name="jenis" id="jenis" required>
-                                    <option>- pilih -</option>
-                                    <option value="Pita Penggadu">Pita Penggadu</option>
-                                    <option value="Cermin Tikungan">Cermin Tikungan</option>
-                                    <option value="Rambu">Rambu</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group row">
+
+                        {{-- <div class="form-group row">
                             <label for="foto_lokasi" class="col-sm-3 col-form-label">Foto Lokasi</label>
                             <div class="col-sm-9">
                                 <input type="file"  class="form-control" id="foto_lokasi" name="foto_lokasi[]" multiple required>
@@ -175,7 +178,7 @@
 
 
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Simpan</button>

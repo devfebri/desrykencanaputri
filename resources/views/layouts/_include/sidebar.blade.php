@@ -1,8 +1,9 @@
 <!-- LOGO -->
 <div class="topbar-left">
     <div class="text-center">
-        <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="logo"><img src="{{ asset('img/icon.png') }}" class="bg-white" height="80" alt="logo"></a>
-        <h5></h5>
+        {{-- <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="logo"><img src="{{ asset('img/icon.png') }}" class="bg-white" height="80" alt="logo"></a> --}}
+        <h5><b>Technical Test Tahap II Borroneus APAM</b></h5>
+
     </div>
 </div>
 
@@ -20,10 +21,10 @@
              <li>
                  <a href="{{ route(auth()->user()->role.'_permohonan') }}" class="waves-effect">
                      <i class="mdi mdi-home"></i>
-                     <span> Permohonan </span>
+                     <span> Permintaan </span>
                  </a>
              </li>
-             @if(auth()->user()->role=='admin')
+             {{-- @if(auth()->user()->role=='admin')
 
              <li>
                  <a href="{{ route(auth()->user()->role.'_user') }}" class="waves-effect">
@@ -31,7 +32,7 @@
                      <span> User </span>
                  </a>
              </li>
-             @endif
+             @endif --}}
 
         </ul>
     </div>

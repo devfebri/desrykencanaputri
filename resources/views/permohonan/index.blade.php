@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="page-title-box">
-                    <h4 class="page-title">Permohonan
+                    <h4 class="page-title">Permintaan
                         {{-- <button type="button" class="btn btn-primary mb-2  float-right btn-sm" id="tombol-tambah">
                             Tambah Data
                         </button> --}}
@@ -27,15 +27,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pemohon</th>
-                                    <th>Pekerjaan</th>
-                                    <th>Alamat</th>
                                     <th>Jenis Permintaan</th>
                                     <th>Status</th>
-                                    @if(auth()->user()->role=='admin')
-                                    <th>Persetujuan Kasi</th>
-                                    @else
-                                    <th>Persetujuan {{ auth()->user()->role }}</th>
-                                    @endif
+                                    <th>Persetujuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -44,8 +38,6 @@
                                 <tr>
                                     <td>{{ ++$key }}</td>
                                     <td>{{ $row->nama }}</td>
-                                    <td>{{ $row->pekerjaan }}</td>
-                                    <td>{{ $row->alamat }}</td>
                                     <td>{{ $row->jenis }}</td>
                                     <td style="text-align: center">
                                         @if($row->status=='Proses Dokumen')
@@ -56,46 +48,19 @@
                                         <span class="badge badge-pill badge-success">{{ $row->status }}</span>
                                         @endif
                                     </td>
-                                    @if(auth()->user()->role=='admin')
                                     <td>
-                                         <span class="badge badge-pill @if($row->persetujuan_kasi=='Proses') badge-secondary @elseif($row->persetujuan_kasi=='Disetujui') badge-success @elseif($row->persetujuan_kasi=='Tidak Disetujui') badge-danger @endif ">{{ $row->persetujuan_kasi }}</span>
+                                        <span class="badge badge-pill @if($row->persetujuan_kasi=='Proses') badge-secondary @elseif($row->persetujuan_kasi=='Disetujui') badge-success @elseif($row->persetujuan_kasi=='Tidak Disetujui') badge-danger @endif ">{{ $row->persetujuan_kasi }}</span>
                                     </td>
                                     <td>
                                         <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
-                                        @if($row->persetujuan_kasi == 'Proses')
+                                        @if($row->persetujuan == 'Proses')
                                         <a href="{{ route(auth()->user()->role.'_permohonan_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success"><span class="ti-check"></span></a>
                                         <a href="{{ route(auth()->user()->role.'_permohonan_tidak_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tidak disetujui" class="tabledit-edit-button btn btn-sm btn-danger"><span class="ti-close"></span></a>
                                         @endif
 
                                     </td>
 
-
-                                    @elseif(auth()->user()->role=='kabid')
-                                    <td>
-                                        <span class="badge badge-pill badge-success">{{ $row->persetujuan_kabid }}</span>
-                                    </td>
-                                     <td>
-                                         <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
-                                         @if($row->persetujuan_kabid == 'Proses')
-                                         <a href="{{ route(auth()->user()->role.'_permohonan_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success"><span class="ti-check"></span></a>
-                                         <a href="{{ route(auth()->user()->role.'_permohonan_tidak_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tidak disetujui" class="tabledit-edit-button btn btn-sm btn-danger"><span class="ti-close"></span></a>
-                                         @endif
-
-                                     </td>
-
-                                    @elseif(auth()->user()->role=='kadis')
-                                    <td>
-                                        <span class="badge badge-pill badge-success">{{ $row->persetujuan_kadis }}</span>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
-                                        @if($row->persetujuan_kadis == 'Proses')
-                                        <a href="{{ route(auth()->user()->role.'_permohonan_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success"><span class="ti-check"></span></a>
-                                        <a href="{{ route(auth()->user()->role.'_permohonan_tidak_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tidak disetujui" class="tabledit-edit-button btn btn-sm btn-danger"><span class="ti-close"></span></a>
-                                        @endif
-
-                                    </td>
-                                    @endif
+                                    
                                 </tr>
                                 @endforeach
                             </tbody>

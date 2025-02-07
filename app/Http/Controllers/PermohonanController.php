@@ -25,36 +25,36 @@ class PermohonanController extends Controller
         // dd($request->file('foto_lokasi'));
         $data=new Permohonan;
         $data->nama=$request->nama;
-        $data->pekerjaan=$request->pekerjaan;
-        $data->nohp=$request->nohp;
-        $data->alamat=$request->alamat;
+        // $data->pekerjaan=$request->pekerjaan;
+        // $data->nohp=$request->nohp;
+        // $data->alamat=$request->alamat;
         $data->keterangan=$request->keterangan;
         $data->jenis=$request->jenis;
         $data->status='Proses Dokumen';
         $data->save();
-        if ($request->has('foto_lokasi')) {
-            $datafoto = $request->file('foto_lokasi');
-            foreach ($datafoto as $row) {
-                $foto_lokasi = new FotoLokasi();
-                $filename = $row->getClientOriginalName() . '-' . time() . '.' . $row->extension();
-                $row->move(public_path() . '/storage/foto_lokasi/' . $data->id, $filename);
-                $foto_lokasi->permohonan_id = $data->id;
-                $foto_lokasi->foto = $filename;
-                $foto_lokasi->save();
-            }
-        }
+        // if ($request->has('foto_lokasi')) {
+        //     $datafoto = $request->file('foto_lokasi');
+        //     foreach ($datafoto as $row) {
+        //         $foto_lokasi = new FotoLokasi();
+        //         $filename = $row->getClientOriginalName() . '-' . time() . '.' . $row->extension();
+        //         $row->move(public_path() . '/storage/foto_lokasi/' . $data->id, $filename);
+        //         $foto_lokasi->permohonan_id = $data->id;
+        //         $foto_lokasi->foto = $filename;
+        //         $foto_lokasi->save();
+        //     }
+        // }
 
-        if ($request->has('dokumen')) {
-            $datadokumen = $request->file('dokumen');
-            foreach ($datadokumen as $row) {
-                $dokumen = new Dokumen();
-                $filename1 = $row->getClientOriginalName() . '-' . time() . '.' . $row->extension();
-                $row->move(public_path() . '/storage/dokumen/' . $data->id, $filename1);
-                $dokumen->permohonan_id = $data->id;
-                $dokumen->dokumen = $filename1;
-                $dokumen->save();
-            }
-        }
+        // if ($request->has('dokumen')) {
+        //     $datadokumen = $request->file('dokumen');
+        //     foreach ($datadokumen as $row) {
+        //         $dokumen = new Dokumen();
+        //         $filename1 = $row->getClientOriginalName() . '-' . time() . '.' . $row->extension();
+        //         $row->move(public_path() . '/storage/dokumen/' . $data->id, $filename1);
+        //         $dokumen->permohonan_id = $data->id;
+        //         $dokumen->dokumen = $filename1;
+        //         $dokumen->save();
+        //     }
+        // }
 
         return redirect(route('informasi'))->with('berhasil', 'Data berhasil dibuat');
     }
@@ -77,9 +77,9 @@ class PermohonanController extends Controller
     public function detail($id){
         // dd($data);
         $data=Permohonan::find($id);
-        $foto_lokasi=FotoLokasi::where('permohonan_id',$id)->get();
-        $dokumen=Dokumen::where('permohonan_id',$id)->get();
-        return view('permohonan.open',compact('data','foto_lokasi','dokumen'));
+        // $foto_lokasi=FotoLokasi::where('permohonan_id',$id)->get();
+        // $dokumen=Dokumen::where('permohonan_id',$id)->get();
+        return view('permohonan.open',compact('data'));
     }
 
     public function setujui($id){

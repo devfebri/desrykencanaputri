@@ -53,7 +53,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Dinas Perhubungan Kota Jambi</title>
+    <title>Desry Kencana Putri</title>
 
     <meta content="Admin Dashboard" name="description" />
     <meta content="Mannatthemes" name="author" />
@@ -88,9 +88,12 @@
         <div class="" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
-                    <img src="{{ asset('img/icon.png') }}"  height="100" alt="logo" data-tilt>
+                    {{-- <img src="{{ asset('img/icon.png') }}"  height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn ">Dinas Perhubungan Kota Jambi</h3>
+                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>L O G I N &nbsp;&nbsp;&nbsp; T E K N I S I</b></h3>
+
+
+
 
 
                 <div class="p-3 animate__animated animate__flipInX">

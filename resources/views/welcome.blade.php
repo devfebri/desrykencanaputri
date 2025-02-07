@@ -53,14 +53,14 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Dinas Perhubungan Kota Jambi</title>
+    <title>Desry Kencana Putri</title>
 
 
     <meta content="Admin Dashboard" name="description" />
     <meta content="Mannatthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('img/icon.png') }}"> --}}
 
     <link href="{{ asset('template/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('template/assets/css/icons.css') }}" rel="stylesheet" type="text/css">
@@ -95,15 +95,15 @@
         <div class="" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
-                    <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt>
+                    {{-- <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:16pt;color:white;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>PERMATA JALAN <br> Dinas Perhubungan Kota Jambi</b></h3>
+                <h3 style="font-family:Cursive;font-size:16pt;color:white;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>DESRY KENCANA PUTRI <br> Technical Test Tahap II Borroneus APAM</b></h3>
                 <div class="p-5 animate__animated animate__zoomIn">
                     <div class="form-group text-center row m-t-20">
                         <div class="col-12">
                             <a href="{{ route('pengajuan') }}" class="btn btn-primary btn-block waves-effect waves-light">Ajukan Permohonan</a>
                             <a href="{{ route('informasi') }}" class="btn btn-primary btn-block waves-effect waves-light">Informasi Permohonan</a>
-                            <a href="{{ route('login') }}" class="btn btn-secondary btn-block waves-effect waves-light">Login Petugas</a>
+                            <a href="{{ route('login') }}" class="btn btn-secondary btn-block waves-effect waves-light">Login Teknisi</a>
                         </div>
                     </div>
 

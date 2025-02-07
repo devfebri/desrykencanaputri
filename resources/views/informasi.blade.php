@@ -53,13 +53,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-    <title>Dinas Perhubungan Kota Jambi</title>
+    <title>Desry Kencana Putri</title>
 
     <meta content="Admin Dashboard" name="description" />
     <meta content="Mannatthemes" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="{{ asset('img/icon.png') }}">
+    {{-- <link rel="shortcut icon" href="{{ asset('img/icon.png') }}"> --}}
 
     <!-- DataTables -->
     <link href="{{ asset('template/assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -101,9 +101,9 @@
         <div class="card" style="font-family:revert-layer;">
             <div class="card-body">
                 <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
-                    <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt>
+                    {{-- <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Daftar Permohonan Dinas Perhubungan</b></h3>
+                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Daftar Permintaan</b></h3>
 
 
                 <h4 class="header-title">
@@ -118,9 +118,8 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Pemohon</th>
-                            <th>Pekerjaan</th>
-                            <th>Alamat</th>
-                            <th>Jenis Permintaan</th>
+                            
+                            <th>Permintaan</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -129,13 +128,11 @@
                             <tr>
                                 <td>{{ ++$key }}</td>
                                 <td>{{ $row->nama }}</td>
-                                <td>{{ $row->pekerjaan }}</td>
-                                <td>{{ $row->alamat }}</td>
                                 <td>{{ $row->jenis }}</td>
                                 <td style="text-align: center">
                                     @if($row->status=='Proses Dokumen')
                                     <span class="badge badge-pill badge-info">{{ $row->status }}</span>
-                                    @elseif($row->status=='Proses Survei')
+                                    @elseif($row->status=='Tidak Disetujui')
                                     <span class="badge badge-pill badge-warning">{{ $row->status }}</span>
                                     @elseif($row->status=='Disetujui')
                                     <span class="badge badge-pill badge-success">{{ $row->status }}</span>

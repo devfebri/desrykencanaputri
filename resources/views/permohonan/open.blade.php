@@ -25,7 +25,7 @@
             </div>
         </div>
         <!-- end page title end breadcrumb -->
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="card m-b-20">
                     <div class="row text-center" style="font-size: 12px;">
@@ -54,15 +54,15 @@
                     </div>
 
             </div>
-        </div>
+        </div> --}}
     </div>
 
 
     <div class="row">
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-12 col-sm-12">
             <div class="card m-b-20">
                 <div class="card-body">
-                    <h4 class="mt-0 header-title">Detail Permohonan </h4>
+                    <h4 class="mt-0 header-title">Detail Permintaan </h4>
 
                     <table class="table table-bordered table-striped">
                         <tr>
@@ -71,7 +71,7 @@
                             <td>{{ $data->nama }}</td>
                         </tr>
 
-                        <tr>
+                        {{-- <tr>
                             <td width="35%">Pekerjaan</td>
                             <td width="3%">:</td>
                             <td>{{ $data->pekerjaan }}</td>
@@ -88,7 +88,7 @@
                             <td width="35%">Alamat</td>
                             <td width="3%">:</td>
                             <td>{{ $data->alamat }}</td>
-                        </tr>
+                        </tr> --}}
                         <tr>
                             <td width="35%">Jenis</td>
                             <td width="3%">:</td>
@@ -115,48 +115,7 @@
 
 
         </div> <!-- end col -->
-        <div class="col-lg-6 col-sm-12">
-            <div class="card m-b-20">
-                <div class="card-body">
-
-                    <h4 class="mt-0 header-title">Dokumen</h4>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="">
-                                @foreach ($dokumen as $key=>$row2)
-                                    <a href="{{ asset('/storage/dokumen/'.$row2->permohonan_id.'/'.$row2->dokumen) }}" target="_blank" class="btn btn-primary btn-sm">Dokumen {{ ++$key }}</a>
-                                @endforeach
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-            <div class="card m-b-20">
-                <div class="card-body">
-
-                    <h4 class="mt-0 header-title">Foto Lokasi</h4>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="">
-                                @foreach ($foto_lokasi as $key1=>$row1)
-                                <a href="{{ asset('/storage/foto_lokasi/'.$row1->permohonan_id.'/'.$row1->foto) }}" class="btn btn-primary btn-sm" target="_blank">Foto Lokasi {{ ++$key1 }}</a>
-                                @endforeach
-                            </div>
-
-                        </div>
-                    </div>
-
-
-
-                </div>
-            </div>
-
-
-        </div> <!-- end col -->
+     
     </div> <!-- end row -->
 
 </div><!-- container -->
