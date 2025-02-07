@@ -50,7 +50,11 @@
                                         @endif
                                     </td>
                                     {{-- <td>{{ $row->updated_at }}</td> --}}
-                                    <td>{{ $row->tanggal_pengambilan }}</td>
+                                    <td> @if($row->tanggal_pengambilan != null)
+
+                                        {{ date('d-m-Y', strtotime($row->tanggal_pengambilan)); }}
+                                        @endif</td>
+
                                     <td>
                                         <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
                                         @if($row->status == 'Proses')

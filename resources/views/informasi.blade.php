@@ -121,6 +121,7 @@
                             
                             <th>Permintaan</th>
                             <th>Status</th>
+                            <th>Tanggal Pengambilan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -136,6 +137,12 @@
                                     <span class="badge badge-pill badge-warning">{{ $row->status }}</span>
                                     @elseif($row->status=='Disetujui')
                                     <span class="badge badge-pill badge-success">{{ $row->status }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if($row->tanggal_pengambilan != null)
+                                        
+                                    {{ date('d-m-Y', strtotime($row->tanggal_pengambilan)); }}
                                     @endif
                                 </td>
                             </tr>

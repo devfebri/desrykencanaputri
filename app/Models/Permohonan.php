@@ -11,4 +11,6 @@ class Permohonan extends Model
 
     protected $table='permohonan';
     protected $fillable=['tanggal_pengambilan','status'];
+
+    protected $dates = ['tanggal_pengambilan'];
 }
