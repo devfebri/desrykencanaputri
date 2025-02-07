@@ -85,40 +85,20 @@ class PermohonanController extends Controller
     public function setujui($id){
         $data = Permohonan::find($id);
         $role = auth()->user()->role;
-        if ($role == 'admin') {
-            $data->update([
-                'persetujuan_kasi' => 'Disetujui',
-                'status' => 'Proses Survei'
-            ]);
-        } elseif ($role == 'kabid') {
-            $data->update([
-                'persetujuan_kabid' => 'Disetujui'
-            ]);
-        } elseif ($role == 'kadis') {
-            $data->update([
-                'persetujuan_kadis' => 'Disetujui',
-                'status' => 'Disetujui'
-            ]);
-        }
+        $data->update([
+            'persetujuan' => 'Disetujui',
+        ]);
+        
         return redirect()->back();
     }
 
     public function tidakdisetujui($id){
         $data = Permohonan::find($id);
         $role=auth()->user()->role;
-        if($role=='admin'){
-            $data->update([
-                'persetujuan_kasi' => 'Tidak Disetujui'
-            ]);
-        }elseif($role=='kabid'){
-            $data->update([
-                'persetujuan_kabid' => 'Tidak Disetujui'
-            ]);
-        }elseif($role=='kadis'){
-            $data->update([
-                'persetujuan_kadis' => 'Tidak Disetujui'
-            ]);
-        }
+        $data->update([
+            'persetujuan_kasi' => 'Tidak Disetujui'
+        ]);
+       
 
         return redirect()->back();
     }
