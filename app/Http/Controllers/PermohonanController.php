@@ -82,11 +82,13 @@ class PermohonanController extends Controller
         return view('permohonan.open',compact('data'));
     }
 
-    public function setujui($id){
-        $data = Permohonan::find($id);
-        $role = auth()->user()->role;
+    public function setujui(Request $request){
+        
+        $data = Permohonan::find($request->dataid);
+        
         $data->update([
             'status' => 'Disetujui',
+            'tanggal_pengambilan'=>$request->tanggal_pengambilan,
         ]);
         
         return redirect()->back();

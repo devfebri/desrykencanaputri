@@ -29,7 +29,8 @@
                                     <th>Nama Pemohon</th>
                                     <th>Jenis Permintaan</th>
                                     <th>Status</th>
-                                    <th>Tanggal Update</th>
+                                    {{-- <th>Tanggal Update</th> --}}
+                                    <th>Tanggal Pengambilan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -48,17 +49,18 @@
                                         <span class="badge badge-pill badge-success">{{ $row->status }}</span>
                                         @endif
                                     </td>
-                                    <td>{{ $row->updated_at }}</td>
+                                    {{-- <td>{{ $row->updated_at }}</td> --}}
+                                    <td>{{ $row->tanggal_pengambilan }}</td>
                                     <td>
                                         <a href="{{ route(auth()->user()->role.'_permohonandetail',$row->id) }}" style="margin: 5px;" data-toggle="tooltip" data-placement="top" title="" data-original-title="Detail" class="tabledit-edit-button btn btn-sm btn-primary"><span class="ti-receipt"></span></a>
                                         @if($row->status == 'Proses')
-                                        <a href="{{ route(auth()->user()->role.'_permohonan_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success"><span class="ti-check"></span></a>
+                                        <button style="margin: 5px;" id="btnsetuju" data-id="{{ $row->id }}" data-original-title="Setujui" class="tabledit-edit-button btn btn-sm btn-success edit"><span class="ti-check"></span></button>
+                                        
+                                        
+
                                         <a href="{{ route(auth()->user()->role.'_permohonan_tidak_disetujui',$row->id) }}" style="margin: 5px;" onclick="return confirm('Apakah anda yakin ?')" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tidak disetujui" class="tabledit-edit-button btn btn-sm btn-danger"><span class="ti-close"></span></a>
                                         @endif
-
                                     </td>
-
-                                    
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -70,6 +72,36 @@
         </div>
     </div>
 </div>
+
+
+<div class="modal fade" id="setujuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tanggal Pengambilan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('admin_permohonan_disetujui') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <input type="date" class="form-control" name="tanggal_pengambilan" id="tanggal_pengambilan" required>
+                    <input type="hidden" class="form-control" name="dataid" id="dataid" value="" >
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="tambah-edit-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -119,14 +151,25 @@
 <script src="{{ asset('template/assets/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src='{{ asset('template/assets/plugins/select2/select2.min.js') }}'></script>
 <script src="{{ asset('js/jquery-validation/jquery.validate.min.js') }}"></script>
+
 <script>
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    $('body').on('click', '.edit', function () {
+
+            var data_id = $(this).data('id');  
+            $('#setujuModal').modal('show');
+            $('#dataid').val(data_id);
+
+            // alert(data_id);
+           
+        });
     $(document).ready(function() {
         var table = $('#datatable1').DataTable();
+        
     });
 
 </script>

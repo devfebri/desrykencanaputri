@@ -66,7 +66,7 @@
     <link href="{{ asset('template/assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <!-- Alertify css -->
     <link href="{{ asset('template/assets/plugins/alertify/css/alertify.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> --}}
 
     <style>
         .febri {
@@ -87,16 +87,16 @@
 
         <div class="" style="font-family:revert-layer;">
             <div class="card-body">
-                <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
+                <h3 class="text-center mt-0 m-b-15 ">
                     {{-- <img src="{{ asset('img/icon.png') }}"  height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>L O G I N &nbsp;&nbsp;&nbsp; T E K N I S I</b></h3>
+                <h3 style="font-family:Cursive;font-size:14pt;color:#fff;margin-bottom:-25px;" class="text-center  "><b>L O G I N &nbsp;&nbsp;&nbsp; T E K N I S I</b></h3>
 
 
 
 
 
-                <div class="p-3 animate__animated animate__flipInX">
+                <div class="p-3 ">
                     @php
                     if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
                     $login_username=$_COOKIE['username'];
@@ -116,14 +116,11 @@
                                 <input class="form-control text-center" name="username" type="text" required="" value="{{ $login_username }}" placeholder="Username">
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <div class="col-12">
                                 <input class="form-control text-center" id="password" name="password" type="password" required="" value="{{ $login_password }}" placeholder="Password">
                             </div>
                         </div>
-
-
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Login</button>
@@ -135,16 +132,12 @@
                             <div class="col-sm-6 m-t-20">
                                 <div class="custom-control custom-checkbox text-center">
                                     <input type="checkbox" class="custom-control-input" id="chkShowPassword">
-
                                     <label class="custom-control-label text-show-password" for="chkShowPassword">Show Password</label>
-
-
                                 </div>
 
                             </div>
                             <div class="col-sm-6 m-t-20">
                                 <div class="custom-control custom-checkbox text-center">
-
                                     <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ $is_remember }}>
                                     <label class="custom-control-label" for="remember">Remember Me</label>
                                 </div>

@@ -33,7 +33,7 @@ Route::prefix('admin')->middleware('auth', 'role:admin')->name('admin_')->group(
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/permohonan', [PermohonanController::class, 'index'])->name('permohonan');
     Route::get('/permohonan/{id}/detail', [PermohonanController::class, 'detail'])->name('permohonandetail');
-    Route::get('/permohonan/{id}/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
+    Route::post('/permohonan/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
     Route::get('/permohonan/{id}/tidakdisetujui', [PermohonanController::class, 'tidakdisetujui'])->name('permohonan_tidak_disetujui');
 
 
@@ -41,19 +41,19 @@ Route::prefix('admin')->middleware('auth', 'role:admin')->name('admin_')->group(
     Route::post('user/tambah',[UserController::class,'tambah'])->name('usertambah');
     Route::delete('user/{id}/delete',[UserController::class,'delete'])->name('userdelete');
 });
-Route::prefix('kabid')->middleware('auth', 'role:kabid')->name('kabid_')->group(function () {
+// Route::prefix('kabid')->middleware('auth', 'role:kabid')->name('kabid_')->group(function () {
 
-    Route::get('/permohonan', [PermohonanController::class, 'index'])->name('permohonan');
-    Route::get('/permohonan/{id}/detail', [PermohonanController::class, 'detail'])->name('permohonandetail');
-    Route::get('/permohonan/{id}/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
-    Route::get('/permohonan/{id}/tidakdisetujui', [PermohonanController::class, 'tidakdisetujui'])->name('permohonan_tidak_disetujui');
+//     Route::get('/permohonan', [PermohonanController::class, 'index'])->name('permohonan');
+//     Route::get('/permohonan/{id}/detail', [PermohonanController::class, 'detail'])->name('permohonandetail');
+//     Route::get('/permohonan/{id}/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
+//     Route::get('/permohonan/{id}/tidakdisetujui', [PermohonanController::class, 'tidakdisetujui'])->name('permohonan_tidak_disetujui');
 
-});
-Route::prefix('kadis')->middleware('auth', 'role:kadis')->name('kadis_')->group(function () {
+// });
+// Route::prefix('kadis')->middleware('auth', 'role:kadis')->name('kadis_')->group(function () {
 
-    Route::get('/permohonan', [PermohonanController::class, 'index'])->name('permohonan');
-    Route::get('/permohonan/{id}/detail', [PermohonanController::class, 'detail'])->name('permohonandetail');
-    Route::get('/permohonan/{id}/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
-    Route::get('/permohonan/{id}/tidakdisetujui', [PermohonanController::class, 'tidakdisetujui'])->name('permohonan_tidak_disetujui');
+//     Route::get('/permohonan', [PermohonanController::class, 'index'])->name('permohonan');
+//     Route::get('/permohonan/{id}/detail', [PermohonanController::class, 'detail'])->name('permohonandetail');
+//     Route::get('/permohonan/{id}/disetujui', [PermohonanController::class, 'setujui'])->name('permohonan_disetujui');
+//     Route::get('/permohonan/{id}/tidakdisetujui', [PermohonanController::class, 'tidakdisetujui'])->name('permohonan_tidak_disetujui');
 
-});
+// });

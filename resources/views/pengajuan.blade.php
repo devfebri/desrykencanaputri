@@ -66,7 +66,7 @@
     <link href="{{ asset('template/assets/css/welcome.css') }}" rel="stylesheet" type="text/css">
     <!-- Alertify css -->
     <link href="{{ asset('template/assets/plugins/alertify/css/alertify.css') }}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" /> --}}
 
     <style>
         .febri {
@@ -92,14 +92,14 @@
 
         <div class="card" style="font-family:revert-layer;">
             <div class="card-body">
-                <h3 class="text-center mt-0 m-b-15 animate__animated animate__rotateIn">
+                <h3 class="text-center mt-0 m-b-15 ">
                     {{-- <img src="{{ asset('img/icon.png') }}" class=" " height="100" alt="logo" data-tilt> --}}
                 </h3>
-                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center animate__animated animate__fadeIn "><b>Ajukan Permintaan</b></h3>
+                <h3 style="font-family:Cursive;font-size:16pt;margin-bottom:-25px;" class="text-center  "><b>Ajukan Permintaan</b></h3>
 
 
 
-                <div class="p-3 animate__animated animate__zoomIn">
+                <div class="p-3 ">
                     @php
                     if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
                     $login_username=$_COOKIE['username'];
